@@ -9,15 +9,6 @@ exports.fetchPost = async (postId, next) => {
   }
 };
 
-exports.postsCreate = async (req, res) => {
-  try {
-    const newPost = await Post.create(req.body);
-    res.status(201).json(newPost);
-  } catch (error) {
-    next(error);
-  }
-};
-
 exports.postsDelete = async (req, res) => {
   try {
     await Post.findByIdAndRemove({ _id: req.post.id });
