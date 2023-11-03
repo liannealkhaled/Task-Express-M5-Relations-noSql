@@ -9,7 +9,7 @@ exports.createAuthor = async (req, res) => {
     next(error);
   }
 };
-exports.getAuthors = async (req, res) => {
+exports.getAllAuthors = async (req, res) => {
   try {
     const authors = await Author.find();
     res.status(200).json(authors);
@@ -27,3 +27,9 @@ exports.postsCreate = async (req, res, next) => {
     next(error);
   }
 };
+
+// exports.deleteAuthorbyId = async (req, res) => {
+//   const { id } = req.params;
+//   const deletedauthor = await Author.findByIdAndDelete(id);
+//   return res.status(204).end();
+// };

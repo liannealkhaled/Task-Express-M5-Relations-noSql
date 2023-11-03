@@ -5,7 +5,8 @@ const { route } = require("../posts/posts.routes");
 const {
   postsCreate,
   createAuthor,
-  getAuthors,
+  getAllAuthors,
+  deleteAuthorbyId,
 } = require("./author.controllers");
 const Author = require("../../models/Author");
 
@@ -22,9 +23,10 @@ router.param("authorId", async (req, res, next, authorId) => {
   }
 });
 
-router.post("/:authorId", postsCreate);
-router.get("/", getAuthors);
-
+router.get("/", getAllAuthors);
 router.post("/", createAuthor);
+// router.delete("/", deleteAuthorbyId);
+router.post("/:authorId", postsCreate);
+
 ///// populate.
 module.exports = router;

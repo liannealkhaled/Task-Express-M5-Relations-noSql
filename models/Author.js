@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const AuthorSchema = new Schema({
-  name: String,
+  name: { type: String, required: true, default: "AUTHOR" },
   posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
 });
 
